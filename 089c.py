@@ -38,7 +38,49 @@ print(ans)
             
             
             
-            
+ -----------------------------
+ import itertools
+
+time = int(input())
+
+array = [0] * 5
+
+for i in range(time):
+    tmp = input()
+    if(tmp[0] == "M"):
+        array[0] += 1
+    elif(tmp[0] == "A"):
+        array[1] += 1
+    elif(tmp[0] == "R"):
+        array[2] += 1
+    elif(tmp[0] == "C"):
+        array[3] += 1
+    elif(tmp[0] == "H"):
+        array[4] += 1
+count = 0
+for i in range(5):
+    if(array[i]>=1):
+        count += 1
+##print(array)
+if(count <= 2):
+    print(0)
+else:
+    ans = 0
+    array2 = list(itertools.combinations([0,1,2,3,4], 3))
+    for i in range(len(array2)):
+        tmp = 1
+        for j in range(3):
+            if(array[array2[i][j]] == 0):
+                break
+            tmp *=array[array2[i][j]]
+            #print(array[array2[i][j]])
+            #print(tmp)
+            ##print("#####")
+        else:
+            #print("Aaaaa")
+            #print(tmp)
+            ans += tmp
+    print(ans)           
             
             
             
