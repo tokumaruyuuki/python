@@ -1,0 +1,7 @@
+a = list(map(int, input().split(' ')))
+aa = max(a)
+a.remove(aa)
+aaa = max(a)
+a.remove(aaa)
+b = int(str(aa) + str(aaa))
+print(b + a[0])
