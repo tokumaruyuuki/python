@@ -1,0 +1,10 @@
+a, b = map(int,input().split(' '))
+array = [4,6,9,11]
+if(a == b):
+  print('Yes')
+elif(a in array and b in array):
+  print('Yes')
+elif(a not in array and b not in array and a != 2 and b != 2):
+  print('Yes')
+else:
+  print('No')
