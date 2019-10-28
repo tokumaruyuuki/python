@@ -34,3 +34,26 @@ else:
     print("no")
 ---------------------------------------------
 
+limit = int(input())
+takoyaki = int(input())
+takoyakiArray = list(map(int,input().split(' ')))
+customer = int(input())
+customerList = list(map(int,input().split(' ')))
+flag = False
+nowCustomer = customerList.pop(0)
+for i in takoyakiArray:
+    loop = False
+    for j in range(i,i+limit+1):
+        if(loop):continue
+        if(j == nowCustomer):
+            if(len(customerList) == 0):
+                flag = True
+                break
+            else:
+                nowCustomer = customerList.pop(0)
+                loop = True
+
+if(flag):
+    print('yes')
+else:
+    print('no')
