@@ -27,3 +27,37 @@ def dfs(x,y):
             exit()
 dfs(s_x,s_y)
 print("No")
+
+--------
+# coding: utf-8
+# Your code here!
+from collections import deque
+h,w = map(int, input().split())
+ll = []
+passed = [[False]*w for _ in range(h)]
+d1 = [0,1,0,-1]
+d2 = [1,0,-1,0]
+for i in range(h):
+    ll.append(list(input()))
+s_x, s_y = 0,0
+for i in range(h):
+    for j in range(w):
+        if ll[i][j] == 's':
+            s_x,s_y = i,j
+            passed[i][j] = True
+q = deque()
+q.append([s_x,s_y])
+while q:
+    qq = q.popleft()
+    a,b = qq[0], qq[1]
+    for i in range(4):
+        ta = a + d1[i]
+        tb = b + d2[i]
+        if not (0<=ta<=h-1) or not (0<=tb<=w-1) or ll[ta][tb] == "#" or passed[ta][tb]:
+            continue
+        if ll[ta][tb] == "g":
+            print("Yes")
+            exit()
+        passed[ta][tb] = True
+        q.append([ta,tb])
+print("No")
